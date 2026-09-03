@@ -1,98 +1,301 @@
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Caveat:wght@700&family=Indie+Flower&family=Inter&family=Passion+One&family=Roboto:wght@300&display=swap');
 
-*{
+* {
     padding: 0;
     margin: 0;
     font-family: Inter;
+    box-sizing: border-box;
 }
-img{
-    width: 100px
+
+body {
+    background-color: #850000;
 }
-.cabecalho{
+
+img {
+    width: 100px;
+}
+
+.cabecalho-conteudo {
     display: flex;
     gap: 2.4rem;
+    align-items: center;
     margin: 40px;
     color: #FFFFFF;
     padding-bottom: 5px;
     padding-left: 150px;
 }
-body{
-    background-color: #850000;
-}
-.campo{
-    margin-top: 1em;
+
+#titulo {
     display: grid;
+}
+
+#titulo h1 {
+    font-family: 'Bangers', cursive;
+    font-size: 3rem;
+    letter-spacing: 0.03em;
+}
+
+#titulo p {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    font-size: 1.1rem;
+}
+
+main {
+    display: flex;
+    justify-content: center;
     gap: 25px;
-    
+    align-items: stretch;
+    flex-wrap: wrap;
+    padding: 0 40px 60px;
 }
-.campo label{
-    margin-bottom: 0.2em;
-}
-form{
+
+form,
+.resumoPedido {
     padding: 24px;
     background-color: #FFFFFF;
     border-radius: 24px;
-    width: 30%;
+    width: 400px;
+    max-width: 100%;
 }
 
-.tiposCachorrosQuentes{
+.tiposCachorrosQuentes {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
 }
-main{
-    display: flex;
-    justify-content: center;
-    gap: 25px;
-    align-items:stretch;
+
+.campo {
+    margin-top: 1em;
+    display: grid;
+    gap: 10px;
 }
-.tipo{
+
+.campo label {
+    margin-bottom: 0.2em;
+}
+
+.campo label b {
+    font-size: 1.1rem;
+}
+
+input[type=text] {
     background-color: #E4E4E4;
-    
-}
-.produtos{
-    display: flex;
-}
-input[type=button]{
-    background-color:#E4E4E4;
     border: none;
-    color: rgb(0, 0, 0);
     border-radius: 10px;
-    text-decoration: none;
-    margin: 4px 2px;
-    cursor: pointer;   
-    width: 80%;
-    height: 45px;
-}
-input[type=text]{
-    background-color:#E4E4E4;
-    border: none;
-    border-radius: 10px;  
     width: 90%;
     height: 45px;
     padding-left: 25px;
 }
 
-#submit #btn{
-    background-color:#000000;
+input[type=button],
+button {
+    background-color: #E4E4E4;
     border: none;
-    padding: 15px 10px;
-    border-radius: 10px;  
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+    width: 80%;
+    height: 45px;
 }
-#submit{
+
+#opcaoPersonalizada {
+    display: flex;
+    gap: 30px;
+}
+
+.opcao-radio {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.opcao-radio input,
+.opcao-radio label {
+    cursor: pointer;
+}
+
+select {
+    width: 90%;
+    min-height: 8rem;
+    background-color: #E4E4E4;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.dica {
+    font-size: 0.8rem;
+    color: #666666;
+}
+
+#sessaoIngredientes {
+    display: none;
+}
+
+
+.listaCheckbox {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.listaCheckbox label {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background-color: #E4E4E4;
+    border-radius: 10px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.listaCheckbox input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    accent-color: #850000;
+    flex-shrink: 0;
+}
+
+.checkbox-nome {
+    flex: 1;
+    font-size: 0.95rem;
+}
+
+.checkbox-preco {
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+
+.erro {
+    background-color: #FBE3E3;
+    color: #850000;
+    border-radius: 10px;
+    padding: 10px 15px;
+    font-size: 0.9rem;
+}
+
+#submit {
     padding-top: 40px;
     display: grid;
     justify-content: center;
 }
-#opcao{
-    display: flex;
-    gap: 30px;
+
+#submit #btn {
+    background-color: #000000;
+    border: none;
+    padding: 15px 10px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    width: auto;
 }
-#tituloII{
+
+#tituloII {
     width: 100%;
 }
-#titulo{
-    display: grid;
+
+#tituloII p {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+}
+
+#listaItens {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#listaItens:empty::before {
+    content: "Nenhum item adicionado ainda.";
+    color: #666666;
+    font-size: 0.9rem;
+}
+
+.item-pedido {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    background-color: #E4E4E4;
+    border-radius: 10px;
+    padding: 10px 15px;
+}
+
+.item-info {
+    font-size: 0.9rem;
+}
+
+.item-preco {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-weight: 700;
+}
+
+.item-remover {
+    background: none;
+    border: 1px solid #850000;
+    color: #850000;
+    border-radius: 10px;
+    padding: 4px 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    width: auto;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.item-remover:hover {
+    background-color: #850000;
+    color: #FFFFFF;
+}
+
+#total {
+    margin-top: 1.2rem;
+    padding-top: 1rem;
+    border-top: 2px dashed #E4E4E4;
+    text-align: right;
+}
+
+#total-valor {
+    font-size: 1.4rem;
+}
+
+
+@media (max-width: 700px) {
+    .cabecalho-conteudo {
+        padding-left: 40px;
+        gap: 1.2rem;
+    }
+
+    #titulo h1 {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .cabecalho-conteudo {
+        flex-direction: column;
+        text-align: center;
+        margin: 20px;
+        padding-left: 0;
+    }
+
+    #submit {
+        justify-content: stretch;
+    }
+
+    #submit #btn {
+        width: 100%;
+    }
+
+    .item-pedido {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 }

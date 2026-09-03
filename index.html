@@ -6,84 +6,201 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dogão da Praça</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="stylesheet" href="style/style.css">
 </head>
 
 <body>
-    <div class="cabecalho">
-        <img src="imgs/dogao.png" alt="um belo cachorro quente">
-        <div id="titulo">
-            <h1>Dogão da Praça</h1>
-            <p>Novo pedido</p>
+    <header class="cabecalho">
+        <div class="faixa"></div>
+        <div class="cabecalho-conteudo">
+            <img src="imgs/dogao.png" alt="um belo cachorro quente" class="logo-img">
+            <div id="titulo">
+                <h1>Dogão da Praça</h1>
+                <p>Novo pedido</p>
+            </div>
         </div>
-    </div>
+    </header>
+
     <main>
         <form id="form1">
             <div class="campo">
-                <label><b>Nome do cliente:</b></label>
-                <input type="text" name="name" id="name">
+                <label for="name"><b>Nome do cliente</b></label>
+                <input type="text" name="name" id="name" placeholder="Digite o nome do cliente">
             </div>
+
             <div class="campo">
                 <label><b>É dogão personalizado?</b></label>
-                <div id="opcao">
-                    <div id="sim">
-                        <input onclick= "mostrarIngredientes()" type="radio" name="opcao" value="sim">
+                <div id="opcaoPersonalizada">
+                    <div class="opcao-radio">
+                        <input onclick="mostrarIngredientes()" type="radio" name="opcao" id="sim" value="sim">
                         <label for="sim">Sim</label>
                     </div>
-                    <div id="nao">
-                        <input onclick= "mostrarCardapio()" type="radio" name="opcao" value="nao">
+                    <div class="opcao-radio">
+                        <input onclick="mostrarCardapio()" type="radio" name="opcao" id="nao" value="nao">
                         <label for="nao">Não</label>
                     </div>
                 </div>
             </div>
+
             <div id="sessaoIngredientes">
                 <div class="campo">
-                    <label><b>Ingredientes:</b></label>
-                    <label>
-                        <input type="text" name="ingredientes">
-                    </label>
+                    <label><b>Escolha os ingredientes:</b></label>
+                    <ul class="listaCheckbox" id="ingredientesCheckbox">
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="1.00" data-nome="Salsicha">
+                                <span class="checkbox-nome">Salsicha</span>
+                                <span class="checkbox-preco">R$ 1.00</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="0.50" data-nome="Maionese">
+                                <span class="checkbox-nome">Maionese</span>
+                                <span class="checkbox-preco">R$ 0.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="0.80" data-nome="Batata palha">
+                                <span class="checkbox-nome">Batata palha</span>
+                                <span class="checkbox-preco">R$ 0.80</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="1.20" data-nome="Catupiry">
+                                <span class="checkbox-nome">Catupiry</span>
+                                <span class="checkbox-preco">R$ 1.20</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="1.20" data-nome="Cheddar">
+                                <span class="checkbox-nome">Cheddar</span>
+                                <span class="checkbox-preco">R$ 1.20</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="2.00" data-nome="Carne">
+                                <span class="checkbox-nome">Carne</span>
+                                <span class="checkbox-preco">R$ 2.00</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="1.50" data-nome="Patê de frango">
+                                <span class="checkbox-nome">Patê de frango</span>
+                                <span class="checkbox-preco">R$ 1.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="0.50" data-nome="Vinagrete">
+                                <span class="checkbox-nome">Vinagrete</span>
+                                <span class="checkbox-preco">R$ 0.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="ingredientes" value="0.20" data-nome="Katchup">
+                                <span class="checkbox-nome">Katchup</span>
+                                <span class="checkbox-preco">R$ 0.20</span>
+                            </label>
+                        </li>
+                    </ul>
                 </div>
-                <select name="opcions-personalizado" multiple id="opcao">
-                    <option value=""></option>
-                    <option value="opcao1">Salsicha</option>
-                    <option value="opcao2">Maionese</option>
-                    <option value="opcao3">batata palha</option>
-                    <option value="opcao4">catupiry</option>
-                    <option value="opcao5">cheddar</option>
-                    <option value="opcao6">Carne</option>
-                    <option value="opcao7">Pate de frango</option>
-                    <option value="opcao8">Vinagrete</option>
-                    <option value="opcao9">Katchup</option>
-                </select>
+                <div class="campo">
+                    <label for="observacoes"><b>Observações:</b></label>
+                    <input type="text" name="observacoes" id="observacoes" placeholder="Ex: sem cebola, bem passado...">
+                </div>
             </div>
-            <div id= "sessaoCardapio">
-                <label><b>Cardapio:</b></label>
-                <select name="opcions-cardapio" multiple id="opcao2">
-                    <option value=""></option>
-                    <option value="6.00" nome ="Salsicha, Maionese, Katchup">Tradicional</option>
-                    <option value="6.50" nome="Salsicha, Maionese, Katchup, vinagrete">Dogão Simplão</option>
-                    <option value="6.50" nome="batata palha, Salsicha, Maionese, Katchup, vinagrete">Dogão Simples</option>
-                    <option value="7.00" nome= "Salsicha, Maionese, Katchup, vinagrete, catupiry,batata palha">Dogão Simples II</option>
-                    <option value="7.50" nome="Salsicha, Maionese, Katchup, vinagrete, cheddar, Batata Palha">Dogão cheddarzao</option>
-                    <option value="7.70" nome = "Salsicha, Maionese, Katchup, vinagrete, Carne, cheddar">Dogão socarne</option>
-                    <option value="7.50"nome="Salsicha, Maionese, Katchup, vinagrete,Pate de frango, catupiry">Dogão de frango</option>
-                    <option value="8.00" nome="Salsicha, Maionese, Katchup, vinagrete,Pate de frango, catupiry, Carne">Dogão x-tudão</option>
-                </select>
+
+            <div id="sessaoCardapio">
+                <div class="campo">
+                    <label><b>Cardápio:</b></label>
+                    <ul class="listaCheckbox" id="cardapioCheckbox">
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="6.00" data-nome="Salsicha, Maionese, Katchup">
+                                <span class="checkbox-nome">Tradicional</span>
+                                <span class="checkbox-preco">R$ 6.00</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="6.50" data-nome="Salsicha, Maionese, Katchup, Vinagrete">
+                                <span class="checkbox-nome">Dogão Simplão</span>
+                                <span class="checkbox-preco">R$ 6.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="6.50" data-nome="Batata palha, Salsicha, Maionese, Katchup, Vinagrete">
+                                <span class="checkbox-nome">Dogão Simples</span>
+                                <span class="checkbox-preco">R$ 6.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="7.00" data-nome="Salsicha, Maionese, Katchup, Vinagrete, Catupiry, Batata palha">
+                                <span class="checkbox-nome">Dogão Simples II</span>
+                                <span class="checkbox-preco">R$ 7.00</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="7.50" data-nome="Salsicha, Maionese, Katchup, Vinagrete, Cheddar, Batata palha">
+                                <span class="checkbox-nome">Dogão Cheddarzão</span>
+                                <span class="checkbox-preco">R$ 7.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="7.70" data-nome="Salsicha, Maionese, Katchup, Vinagrete, Carne, Cheddar">
+                                <span class="checkbox-nome">Dogão Socarne</span>
+                                <span class="checkbox-preco">R$ 7.70</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="7.50" data-nome="Salsicha, Maionese, Katchup, Vinagrete, Patê de frango, Catupiry">
+                                <span class="checkbox-nome">Dogão de Frango</span>
+                                <span class="checkbox-preco">R$ 7.50</span>
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="checkbox" name="cardapio" value="8.00" data-nome="Salsicha, Maionese, Katchup, Vinagrete, Patê de frango, Catupiry, Carne">
+                                <span class="checkbox-nome">Dogão X-Tudão</span>
+                                <span class="checkbox-preco">R$ 8.00</span>
+                            </label>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
+            <p id="mensagemErro" class="erro" hidden></p>
+
             <div id="submit">
-                <button onclick="somaValor()"id="btn">Adicionar ao Pedido</button> 
+                <button type="button" onclick="somaValor()" id="btn">Adicionar ao Pedido</button>
             </div>
         </form>
-        <form class="tiposCachorrosQuentes">
+
+        <section class="resumoPedido">
             <div id="tituloII">
-                <p><b>Items do pedido</b></p>
+                <p><b>Itens do pedido</b></p>
             </div>
+            <ul id="listaItens"></ul>
             <div id="total">
-                <label><b id="total-valor">total: R$<span></span></b></label>
+                <b id="total-valor">Total: R$ <span>0.00</span></b>
             </div>
-        </form>
+        </section>
     </main>
+
+    <script src="script.js" defer></script>
 </body>
-<script src="script.js" defer></script>
 
 </html>
